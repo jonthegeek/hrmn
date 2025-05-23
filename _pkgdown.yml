@@ -1,0 +1,6 @@
+url: https://jonthegeek.github.io/hrmn/
+template:
+  bootstrap: 5
+lang: en-US
+development:
+  mode: auto
