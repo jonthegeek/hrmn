@@ -14,7 +14,7 @@ For additional reprex pointers, check out the [Get help!](https://www.tidyverse.
 
 Armed with your reprex, the next step is to figure out where to ask. 
 
-*   If it's a question: It's best to ask on the [R4DS Online Learning Community Slack](https://r4ds.io/join). Other options include [Posit Community](https://community.rstudio.com/), and StackOverflow. There are more people there to answer questions.
+*   If it's a question: It's best to ask on the [Data Science Learning Community Slack](https://DSLC.io/). Other options include [Posit Community](https://community.rstudio.com/), and StackOverflow. There are more people there to answer questions.
 
 *   If it's a bug: you're in the right place, [file an issue](https://github.com/jonthegeek/hrmn/issues/new).  
   
