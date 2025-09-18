@@ -4,14 +4,16 @@ Version: 0.0.0.9000
 Authors@R: 
     person("Jon", "Harmon", , "jonthegeek@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4781-4346"))
-Description: A common early step during data analysis is data
-    harmonization: converting disparate datasets into a unified,
+Description: A common early step during data analysis is "data
+    harmonization" -- converting disparate datasets into a unified,
     consistent format, with consistent column names, classes, and values.
     The goal of 'hrmn' is to make this process as easy as it can be.
 License: MIT + file LICENSE
-URL: https://github.com/jonthegeek/hrmn,
-    https://jonthegeek.github.io/hrmn/
+URL: https://jonthegeek.github.io/hrmn/,
+    https://github.com/jonthegeek/hrmn
 BugReports: https://github.com/jonthegeek/hrmn/issues
+Depends:
+    R (>= 4.1)
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

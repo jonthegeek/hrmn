@@ -6,13 +6,13 @@
 \alias{hrmn-package}
 \title{hrmn: Harmonize Datasets}
 \description{
-A common early step during data analysis is data harmonization: converting disparate datasets into a unified, consistent format, with consistent column names, classes, and values. The goal of 'hrmn' is to make this process as easy as it can be.
+A common early step during data analysis is "data harmonization" -- converting disparate datasets into a unified, consistent format, with consistent column names, classes, and values. The goal of 'hrmn' is to make this process as easy as it can be.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/jonthegeek/hrmn}
   \item \url{https://jonthegeek.github.io/hrmn/}
+  \item \url{https://github.com/jonthegeek/hrmn}
   \item Report bugs at \url{https://github.com/jonthegeek/hrmn/issues}
 }
 
