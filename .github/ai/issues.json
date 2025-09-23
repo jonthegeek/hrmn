@@ -17,7 +17,7 @@
       "title": "Implement `map_fct()`",
       "type": {},
       "milestone": {},
-      "body": "This function will map an input vector to a factor, optionally applying a lookup table. It is the core vector-level engine for harmonizing categorical data.\n\nThe signature should be:\n```r\nmap_fct(.data, ..., lookup = NULL)\n```\n\n**MVP Behavior:**\n- The function will take an input vector (`.data`).\n- It will apply the named vector provided in `lookup` to translate values.\n- It will then validate the resulting values against the `levels` defined in a corresponding `specify_fct()` spec, coercing the final output to a factor.\n",
+      "body": "This function will map an input vector to a factor, optionally applying a lookup table. It is the core vector-level engine for harmonizing categorical data.\n\nThe signature should be:\n```r\nmap_fct(.data, ..., .spec = NULL, lookup = NULL)\n```\n\n**MVP Behavior:**\n- The function will take an input vector (`.data`).\n- It will apply the named vector provided in `lookup` to translate values.\n- If a `.spec` object (from `specify_fct()`) is provided, it will validate the resulting values against the `levels` in the spec, coercing the final output to a factor.\n- If `.spec` is `NULL`, the function will perform the mapping but skip the validation, returning a factor.\n",
       "comments": {}
     },
     "4": {
@@ -31,7 +31,7 @@
       "title": "Implement `map_df()`",
       "type": {},
       "milestone": {},
-      "body": "This function will be the main entry point for harmonizing a data frame. It orchestrates the process by applying column-wise mapping rules and validating the result against a full data frame specification.\n\nThe signature should be:\n```r\nmap_df(.data, .spec, ..., .map = NULL)\n```\n\n**MVP Behavior:**\n- It will take a source data frame (`.data`) and a specification object (`.spec`).\n- It will use data-masking to evaluate the mapping expressions supplied in `...`.\n- It will validate that the names and types of the resulting columns match the `.spec`.\n",
+      "body": "This function will be the main entry point for harmonizing a data frame. It orchestrates the process by applying column-wise mapping rules and validating the result against a full data frame specification.\n\nThe signature should be:\n```r\nmap_df(.data, ..., .spec = NULL)\n```\n\n**MVP Behavior:**\n- It will take a source data frame (`.data`) and an optional specification object (`.spec`).\n- It will use data-masking to evaluate the mapping expressions supplied in `...`.\n- If a `.spec` is provided, `map_df()` will use it to validate the final data frame structure after all individual mappings are complete.\n- It should be able to automatically pass the relevant parts of its main `.spec` to the individual `map_*()` calls inside `...` if they don't have their own `.spec` defined.\n",
       "comments": {}
     },
     "6": {
