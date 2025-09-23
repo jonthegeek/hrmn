@@ -1,0 +1,45 @@
+{
+  "_metadata": {
+    "description": "A collection of GitHub issues for the hrmn repository.",
+    "lookup_key": "issue_number",
+    "comment": "Each key in the 'issues' object is a string representation of the GitHub issue number. Empty objects are placeholders so that positions and ids match. Empty objects should be ignored."
+  },
+  "issues": {
+    "1": [],
+    "2": {
+      "title": "Implement `specify_fct()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will be used to define the specification for a factor column. It's the first step in the `hrmn` workflow: defining the target state.\n\nFor the MVP, this function should accept a `levels` argument, which is a character vector of the allowed levels for the factor.\n\n**Example Usage:**\n\n```r\n# Defines a specification for a factor that must contain \"active\" or \"inactive\".\nspec <- specify_fct(levels = c(\"active\", \"inactive\"))\n```\n",
+      "comments": {}
+    },
+    "3": {
+      "title": "Implement `map_fct()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will map an input vector to a factor, optionally applying a lookup table. It is the core vector-level engine for harmonizing categorical data.\n\nThe signature should be:\n```r\nmap_fct(.data, ..., lookup = NULL)\n```\n\n**MVP Behavior:**\n- The function will take an input vector (`.data`).\n- It will apply the named vector provided in `lookup` to translate values.\n- It will then validate the resulting values against the `levels` defined in a corresponding `specify_fct()` spec, coercing the final output to a factor.\n",
+      "comments": {}
+    },
+    "4": {
+      "title": "Implement `specify_df()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will be the container for defining a full data frame specification. It will act as the top-level specification constructor for the most common use case.\n\n**MVP Behavior:**\n- It should accept named arguments in `...`.\n- Each argument will be a call to another `specify_*` function (for the MVP, `specify_fct`).\n- It will return a structured list or object that represents the data frame specification.\n\n**Example Usage:**\n```r\ndf_spec <- specify_df(\n  status = specify_fct(levels = c(\"active\", \"inactive\"))\n)\n```\n",
+      "comments": {}
+    },
+    "5": {
+      "title": "Implement `map_df()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will be the main entry point for harmonizing a data frame. It orchestrates the process by applying column-wise mapping rules and validating the result against a full data frame specification.\n\nThe signature should be:\n```r\nmap_df(.data, .spec, ..., .map = NULL)\n```\n\n**MVP Behavior:**\n- It will take a source data frame (`.data`) and a specification object (`.spec`).\n- It will use data-masking to evaluate the mapping expressions supplied in `...`.\n- It will validate that the names and types of the resulting columns match the `.spec`.\n",
+      "comments": {}
+    },
+    "6": {
+      "title": "Add MVP functionality to README",
+      "type": {},
+      "milestone": {},
+      "body": "Once the MVP functions (#2, #3, #4, #5) are complete, the README should be updated with a simple, motivating example.\n\nThe example should demonstrate the core value proposition of the package: harmonizing multiple, differently-structured source data frames into a single, canonical target specification. For example, maybe these two dfs are the inputs (but probably with more rows):\n\n```r\ndf1 <- data.frame(state = c(\"ACTIVE\", \"inactive\", \"pending\"))\ndf2 <- data.frame(current_status = c(\"A\", \"I\", \"H\"))\n```\n\nAnd the target is a `status` columns with `levels = c(\"active\", \"inactive\", \"on_hold\")`.",
+      "comments": {}
+    }
+  }
+}
