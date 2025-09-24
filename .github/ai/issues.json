@@ -40,6 +40,34 @@
       "milestone": {},
       "body": "Once the MVP functions (#2, #3, #4, #5) are complete, the README should be updated with a simple, motivating example.\n\nThe example should demonstrate the core value proposition of the package: harmonizing multiple, differently-structured source data frames into a single, canonical target specification. For example, maybe these two dfs are the inputs (but probably with more rows):\n\n```r\ndf1 <- data.frame(state = c(\"ACTIVE\", \"inactive\", \"pending\"))\ndf2 <- data.frame(current_status = c(\"A\", \"I\", \"H\"))\n```\n\nAnd the target is a `status` columns with `levels = c(\"active\", \"inactive\", \"on_hold\")`.",
       "comments": {}
+    },
+    "7": {
+      "title": "Implement `specify_chr()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will define the specification for a character vector. It will be a key building block for creating data frame specifications.\n\nThis initial implementation will create the function scaffolding, but arguments beyond the basics (like `allow_na`) will be added in separate issues.\n",
+      "comments": {}
+    },
+    "8": {
+      "title": "Implement `map_chr()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will map an input vector to a character vector. It will be the primary tool for cleaning and transforming string data before validation.\n\nThe initial implementation will handle basic type coercion. Arguments like `case` and `lookup` will be added in future issues. The signature should be `map_chr(.data, ..., .spec = NULL)`.\n",
+      "comments": {}
+    },
+    "9": {
+      "title": "Implement `specify_int()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will define the specification for an integer vector.\n\nThis initial implementation will create the function scaffolding. Arguments like `min`, `max`, and `allow_na` will be added in separate issues.\n",
+      "comments": {}
+    },
+    "10": {
+      "title": "Implement `map_int()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will map an input vector to an integer vector. It will handle coercion from various types (e.g., character, double) to integer.\n\nThe signature should be `map_int(.data, ..., .spec = NULL)`.\n",
+      "comments": {}
     }
   }
 }
