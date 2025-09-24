@@ -9,35 +9,35 @@
     "2": {
       "title": "Implement `specify_fct()`",
       "type": {},
-      "milestone": {},
+      "milestone": 1,
       "body": "This function will be used to define the specification for a factor column. It's the first step in the `hrmn` workflow: defining the target state.\n\nFor the MVP, this function should accept a `levels` argument, which is a character vector of the allowed levels for the factor.\n\n**Example Usage:**\n\n```r\n# Defines a specification for a factor that must contain \"active\" or \"inactive\".\nspec <- specify_fct(levels = c(\"active\", \"inactive\"))\n```\n",
       "comments": {}
     },
     "3": {
-      "title": "Implement `map_fct()`",
+      "title": "Implement `harmonize_fct()`",
       "type": {},
-      "milestone": {},
-      "body": "This function will map an input vector to a factor, optionally applying a lookup table. It is the core vector-level engine for harmonizing categorical data.\n\nThe signature should be:\n```r\nmap_fct(.data, ..., .spec = NULL, lookup = NULL)\n```\n\n**MVP Behavior:**\n- The function will take an input vector (`.data`).\n- It will apply the named vector provided in `lookup` to translate values.\n- If a `.spec` object (from `specify_fct()`) is provided, it will validate the resulting values against the `levels` in the spec, coercing the final output to a factor.\n- If `.spec` is `NULL`, the function will perform the mapping but skip the validation, returning a factor.\n",
+      "milestone": 1,
+      "body": "This function will map an input vector to a factor, optionally applying a lookup table. It is the core vector-level engine for harmonizing categorical data.\n\nThe signature should be:\n```r\nharmonize_fct(.data, ..., .spec = NULL, lookup = NULL)\n```\n\n**MVP Behavior:**\n- The function will take an input vector (`.data`).\n- It will apply the named vector provided in `lookup` to translate values.\n- If a `.spec` object (from `specify_fct()`) is provided, it will validate the resulting values against the `levels` in the spec, coercing the final output to a factor.\n- If `.spec` is `NULL`, the function will perform the mapping but skip the validation, returning a factor.\n",
       "comments": {}
     },
     "4": {
       "title": "Implement `specify_df()`",
       "type": {},
-      "milestone": {},
+      "milestone": 1,
       "body": "This function will be the container for defining a full data frame specification. It will act as the top-level specification constructor for the most common use case.\n\n**MVP Behavior:**\n- It should accept named arguments in `...`.\n- Each argument will be a call to another `specify_*` function (for the MVP, `specify_fct`).\n- It will return a structured list or object that represents the data frame specification.\n\n**Example Usage:**\n```r\ndf_spec <- specify_df(\n  status = specify_fct(levels = c(\"active\", \"inactive\"))\n)\n```\n",
       "comments": {}
     },
     "5": {
-      "title": "Implement `map_df()`",
+      "title": "Implement `harmonize_df()`",
       "type": {},
-      "milestone": {},
-      "body": "This function will be the main entry point for harmonizing a data frame. It orchestrates the process by applying column-wise mapping rules and validating the result against a full data frame specification.\n\nThe signature should be:\n```r\nmap_df(.data, ..., .spec = NULL)\n```\n\n**MVP Behavior:**\n- It will take a source data frame (`.data`) and an optional specification object (`.spec`).\n- It will use data-masking to evaluate the mapping expressions supplied in `...`.\n- If a `.spec` is provided, `map_df()` will use it to validate the final data frame structure after all individual mappings are complete.\n- It should be able to automatically pass the relevant parts of its main `.spec` to the individual `map_*()` calls inside `...` if they don't have their own `.spec` defined.\n",
+      "milestone": 1,
+      "body": "This function will be the main entry point for harmonizing a data frame. It orchestrates the process by applying column-wise mapping rules and validating the result against a full data frame specification.\n\nThe signature should be:\n```r\nharmonize_df(.data, ..., .spec = NULL)\n```\n\n**MVP Behavior:**\n- It will take a source data frame (`.data`) and an optional specification object (`.spec`).\n- It will use data-masking to evaluate the mapping expressions supplied in `...`.\n- If a `.spec` is provided, `harmonize_df()` will use it to validate the final data frame structure after all individual mappings are complete.\n- It should be able to automatically pass the relevant parts of its main `.spec` to the individual `harmonize_*()` calls inside `...` if they don't have their own `.spec` defined.\n",
       "comments": {}
     },
     "6": {
       "title": "Add MVP functionality to README",
       "type": {},
-      "milestone": {},
+      "milestone": 1,
       "body": "Once the MVP functions (#2, #3, #4, #5) are complete, the README should be updated with a simple, motivating example.\n\nThe example should demonstrate the core value proposition of the package: harmonizing multiple, differently-structured source data frames into a single, canonical target specification. For example, maybe these two dfs are the inputs (but probably with more rows):\n\n```r\ndf1 <- data.frame(state = c(\"ACTIVE\", \"inactive\", \"pending\"))\ndf2 <- data.frame(current_status = c(\"A\", \"I\", \"H\"))\n```\n\nAnd the target is a `status` columns with `levels = c(\"active\", \"inactive\", \"on_hold\")`.",
       "comments": {}
     },
@@ -49,10 +49,10 @@
       "comments": {}
     },
     "8": {
-      "title": "Implement `map_chr()`",
+      "title": "Implement `harmonize_chr()`",
       "type": {},
       "milestone": {},
-      "body": "This function will map an input vector to a character vector. It will be the primary tool for cleaning and transforming string data before validation.\n\nThe initial implementation will handle basic type coercion. Arguments like `case` and `lookup` will be added in future issues. The signature should be `map_chr(.data, ..., .spec = NULL)`.\n",
+      "body": "This function will map an input vector to a character vector. It will be the primary tool for cleaning and transforming string data before validation.\n\nThe initial implementation will handle basic type coercion. Arguments like `case` and `lookup` will be added in future issues. The signature should be `harmonize_chr(.data, ..., .spec = NULL)`.\n",
       "comments": {}
     },
     "9": {
@@ -63,10 +63,164 @@
       "comments": {}
     },
     "10": {
-      "title": "Implement `map_int()`",
+      "title": "Implement `harmonize_int()`",
       "type": {},
       "milestone": {},
-      "body": "This function will map an input vector to an integer vector. It will handle coercion from various types (e.g., character, double) to integer.\n\nThe signature should be `map_int(.data, ..., .spec = NULL)`.\n",
+      "body": "This function will map an input vector to an integer vector. It will handle coercion from various types (e.g., character, double) to integer.\n\nThe signature should be `harmonize_int(.data, ..., .spec = NULL)`.\n",
+      "comments": {}
+    },
+    "11": {
+      "title": "Implement `specify_dbl()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will define the specification for a double-precision floating-point vector.\n\nThis initial implementation will create the function scaffolding. Arguments like `min`, `max`, and `allow_na` will be added in separate issues.\n",
+      "comments": {}
+    },
+    "12": {
+      "title": "Implement `harmonize_dbl()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will harmonize an input vector to a double vector. It will handle coercion from various types (e.g., character, integer) to double.\n\nThe signature should be `harmonize_dbl(.data, ..., .spec = NULL)`.\n",
+      "comments": {}
+    },
+    "13": {
+      "title": "Implement `specify_lgl()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will define the specification for a logical vector.\n\nThis initial implementation will create the function scaffolding. The `allow_na` argument will be added in a separate issue.\n",
+      "comments": {}
+    },
+    "14": {
+      "title": "Implement `harmonize_lgl()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will harmonize an input vector to a logical vector. It should be able to handle common non-logical representations (e.g., `c(\"T\", \"F\")`, `c(0, 1)`).\n\nThe signature should be `harmonize_lgl(.data, ..., .spec = NULL)`.\n",
+      "comments": {}
+    },
+    "15": {
+      "title": "Implement `specify_list()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will define the specification for a list column or a standalone list object. It will be crucial for handling semi-structured or nested data.\n\nThe initial implementation should handle specifying both homogenous lists (all elements of one type) and heterogenous lists (named elements with different types).\n",
+      "comments": {}
+    },
+    "16": {
+      "title": "Implement `harmonize_list()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will harmonize an input object to a list, validating against a `specify_list()` specification.\n\nThe signature should be `harmonize_list(.data, ..., .spec = NULL, .map = NULL)`.\n",
+      "comments": {}
+    },
+    "17": {
+      "title": "Add support for nested specifications",
+      "type": {},
+      "milestone": {},
+      "body": "This feature will allow `specify_df()` and `specify_list()` calls to be nested inside other `specify_df()` calls. This is the key to harmonizing nested data structures like list-columns containing data frames.\n\nFor example, this should be possible:\n```r\nspec <- specify_df(\n  id = specify_int(),\n  data = specify_df(\n    x = specify_chr(),\n    y = specify_dbl()\n  )\n)\n```\n",
+      "comments": {}
+    },
+    "18": {
+      "title": "Add `.map` argument to `harmonize_df()` and `harmonize_list()`",
+      "type": {},
+      "milestone": {},
+      "body": "This will allow users to provide a pre-defined, reusable mapping as a list object to `harmonize_df()` and `harmonize_list()`, in addition to providing mappings via `...`. Mappings provided in `...` should take precedence over those in the `.map` list.\n",
+      "comments": {}
+    },
+    "19": {
+      "title": "Add `allow_na` argument to atomic `specify_*()` functions",
+      "type": {},
+      "milestone": {},
+      "body": "This feature will add an `allow_na` logical argument to all atomic `specify_*` functions (`specify_chr()`, `specify_int()`, etc.). When `allow_na = FALSE`, the corresponding `harmonize_*` function should error if any `NA` values are present in the final, harmonized vector.\n",
+      "comments": {}
+    },
+    "20": {
+      "title": "Add `case` argument to `specify_chr()`",
+      "type": {},
+      "milestone": {},
+      "body": "This will add a `case` argument to `specify_chr()` to enforce a specific case (`\"upper\"`, `\"lower\"`, `\"sentence\"`, etc.) on the target character vector. The corresponding logic in `harmonize_chr()` should apply this transformation automatically when a spec with a `case` value is provided.\n",
+      "comments": {}
+    },
+    "21": {
+      "title": "Add `regex` argument to `specify_chr()`",
+      "type": {},
+      "milestone": {},
+      "body": "This will add a `regex` argument to `specify_chr()`. The corresponding `harmonize_chr()` function will validate that all non-NA values in the resulting vector match the provided regular expression.\n",
+      "comments": {}
+    },
+    "22": {
+      "title": "Add `min` and `max` arguments to `specify_int()` and `specify_dbl()`",
+      "type": {},
+      "milestone": {},
+      "body": "This will add `min` and `max` arguments to `specify_int()` and `specify_dbl()` to enforce range constraints on numerical vectors. The `harmonize_int()` and `harmonize_dbl()` functions should error if values fall outside the specified inclusive range.\n",
+      "comments": {}
+    },
+    "23": {
+      "title": "Create interactive `discover_spec()` helper",
+      "type": {},
+      "milestone": {},
+      "body": "This will add an interactive `discover_spec()` function. It will take a data frame as input and launch a Shiny-based gadget that inspects the data and generates a `specify_df()` call for the user to copy or insert.\n",
+      "comments": {}
+    },
+    "24": {
+      "title": "Create interactive `discover_map()` helper",
+      "type": {},
+      "milestone": {},
+      "body": "This will add an interactive `discover_map()` function. It will take a source data frame and a `.spec` object, and launch a Shiny gadget that helps the user build the `harmonize_df()` call by comparing the data to the specification and identifying necessary transformations.\n",
+      "comments": {}
+    },
+    "25": {
+      "title": "Create a \"Get Started\" vignette",
+      "type": {},
+      "milestone": {},
+      "body": "This vignette will provide a comprehensive, narrative introduction to the package. It should walk through a complete example, starting with messy data and ending with a clean, harmonized result, explaining the roles of the `specify_*` and `harmonize_*` functions along the way.\n",
+      "comments": {}
+    },
+    "26": {
+      "title": "Integrate `discover_*()` tools into the pkgdown site with WebR",
+      "type": {},
+      "milestone": {},
+      "body": "This feature will embed the `discover_spec()` and `discover_map()` Shiny gadgets directly into the pkgdown website using WebR. This will allow users to try out the interactive tools in their browser without needing to install the package locally.\n",
+      "comments": {}
+    },
+    "27": {
+      "title": "Implement `specify_dttm()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will define the specification for a date-time (POSIXct) vector. It will need to handle arguments related to time zones and required precision.\n",
+      "comments": {}
+    },
+    "28": {
+      "title": "Implement `harmonize_dttm()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will harmonize an input vector to a date-time (POSIXct) vector. It should be able to parse a variety of common date-time formats from character inputs.\n",
+      "comments": {}
+    },
+    "29": {
+      "title": "Implement `specify_date()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will define the specification for a Date vector.\n",
+      "comments": {}
+    },
+    "30": {
+      "title": "Implement `harmonize_date()`",
+      "type": {},
+      "milestone": {},
+      "body": "This function will harmonize an input vector to a Date vector. It should be able to parse a variety of common date formats from character inputs.\n",
+      "comments": {}
+    },
+    "31": {
+      "title": "Implement a detailed `diagnose()` function for failed harmonizations",
+      "type": {},
+      "milestone": {},
+      "body": "This function will provide rich, detailed feedback when a `harmonize_*` call fails validation. Instead of just an error message, it should return an object that summarizes the failures (e.g., which rows failed, what the problematic values were, and why they failed the spec), making it easier for users to debug their harmonizations.\n",
+      "comments": {}
+    },
+    "32": {
+      "title": "Add an extensibility mechanism for users to create custom `specify_*`/`harmonize_*` methods",
+      "type": {},
+      "milestone": {},
+      "body": "> As a {hrmn} user, in order to extend the hrmn framework to my own data types, I would like an extensibility mechanism built into the package.\n\nEstablish a formal S3-based (or S7-based) system to allow users or other package authors to define their own `specify_*` and `harmonize_*` methods for custom data types. This would enable the harmonization of complex objects like spatial data or custom S3 classes.",
       "comments": {}
     }
   }
