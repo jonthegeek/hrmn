@@ -50,7 +50,8 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>A common early step during data analysis is data harmonization: converting disparate datasets into a unified, consistent format, with consistent column names, classes, and values. The goal of ‘hrmn’ is to make this process as easy as it can be.</p>
+<p>A common early step during data analysis is data harmonization: converting disparate datasets into a unified, consistent format, with consistent column names, classes, and values. The goal of hrmn is to make this process as easy as it can be.</p>
+<p>hrmn provides a declarative, schema-first framework for defining a target data structure and then mapping various source data frames to that structure. By separating the definition of the target state from the transformation logic, hrmn makes the data intake process more robust, readable, and maintainable. It builds upon the validation and stabilization principles of the <a href="https://stbl.api2r.org" class="external-link">{stbl}</a> package, extending them to handle more complex data-cleaning tasks like value lookups and case conversions.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -62,7 +63,8 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>Add usage information and examples here.</p>
+<p>The hrmn workflow is organized around two core function families: <strong><code>specify_*()</code></strong> and <strong><code>harmonize_*()</code></strong>. The <code>specify_*()</code> family (e.g., <code>specify_df()</code>, <code>specify_fct()</code>) is used to create a “specification” object. This object acts as a formal contract, declaratively defining the exact column names, data types, and constraints (such as allowed factor levels or value ranges) of the target object.</p>
+<p>Once a specification is defined, the <strong><code>harmonize_*()</code></strong> family (e.g., <code>harmonize_df()</code>, <code>harmonize_fct()</code>) is used to transform the source data. These functions take a messy input data frame and the target specification, along with a set of mapping rules that describe how to convert the source columns into their target forms. This process ensures that the final output not only has the correct structure but that its values have been cleaned and validated, with clear errors for any data that cannot be conformed to the specification.</p>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
