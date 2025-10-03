@@ -6,13 +6,7 @@
   },
   "issues": {
     "1": [],
-    "2": {
-      "title": "Implement `specify_fct()`",
-      "type": {},
-      "milestone": 1,
-      "body": "This function will be used to define the specification for a factor column. It's the first step in the `hrmn` workflow: defining the target state.\n\nFor the MVP, this function should accept a `levels` argument, which is a character vector of the allowed levels for the factor.\n\n**Example Usage:**\n\n```r\n# Defines a specification for a factor that must contain \"active\" or \"inactive\".\nspec <- specify_fct(levels = c(\"active\", \"inactive\"))\n```\n",
-      "comments": {}
-    },
+    "2": [],
     "3": {
       "title": "Implement `harmonize_fct()`",
       "type": {},
