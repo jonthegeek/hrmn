@@ -1,6 +1,6 @@
 Package: hrmn
 Title: Harmonize Datasets
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R:
     person("Jon", "Harmon", , "jonthegeek@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4781-4346"))
@@ -21,3 +21,5 @@ Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
+Imports:
+    S7
