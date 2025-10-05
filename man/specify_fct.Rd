@@ -2,7 +2,7 @@
 % Please edit documentation in R/specify_fct.R
 \name{specify_fct}
 \alias{specify_fct}
-\title{Specify a factor harmonization}
+\title{Factor specification}
 \usage{
 specify_fct(levels = character())
 }
@@ -10,10 +10,13 @@ specify_fct(levels = character())
 \item{levels}{(\code{character}) The allowed values of the factor.}
 }
 \value{
-A factor specification, an S7 object of class \code{hrmn::hrmn_fct}.
+A \code{hrmn_fct_spec} object that acts as a specification.
 }
 \description{
-Create a \code{hrmn_fct} object that specifies the desired levels for a factor
-variable. This 'specification' object does not contain any data itself, only
-the rules for harmonization.
+Create an object that specifies the desired levels for a factor variable.
+This specification object does not contain any data itself, only the rules
+for harmonization.
+}
+\examples{
+specify_fct(levels = c("a", "b", "c"))
 }

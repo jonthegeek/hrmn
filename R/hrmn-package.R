@@ -2,5 +2,6 @@
 "_PACKAGE"
 
 ## usethis namespace: start
+#' @importFrom fastmatch %fin%
 ## usethis namespace: end
 NULL
