@@ -3,3 +3,4 @@
 export(harmonize_fct)
 export(specify_fct)
 importFrom(fastmatch,"%fin%")
+importFrom(rlang,"%||%")
