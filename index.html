@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">hrmn</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9001</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9002</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,7 +64,7 @@
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <p>The hrmn workflow is organized around two core function families: <strong><code>specify_*()</code></strong> and <strong><code>harmonize_*()</code></strong>. The <code>specify_*()</code> family (e.g., <code>specify_df()</code>, <code><a href="reference/specify_fct.html">specify_fct()</a></code>) is used to create a “specification” object. This object acts as a formal contract, declaratively defining the exact column names, data types, and constraints (such as allowed factor levels or value ranges) of the target object.</p>
-<p>Once a specification is defined, the <strong><code>harmonize_*()</code></strong> family (e.g., <code>harmonize_df()</code>, <code>harmonize_fct()</code>) is used to transform the source data. These functions take a messy input data frame and the target specification, along with a set of mapping rules that describe how to convert the source columns into their target forms. This process ensures that the final output not only has the correct structure but that its values have been cleaned and validated, with clear errors for any data that cannot be conformed to the specification.</p>
+<p>Once a specification is defined, the <strong><code>harmonize_*()</code></strong> family (e.g., <code>harmonize_df()</code>, <code><a href="reference/harmonize_fct.html">harmonize_fct()</a></code>) is used to transform the source data. These functions take a messy input data frame and the target specification, along with a set of mapping rules that describe how to convert the source columns into their target forms. This process ensures that the final output not only has the correct structure but that its values have been cleaned and validated, with clear errors for any data that cannot be conformed to the specification.</p>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
