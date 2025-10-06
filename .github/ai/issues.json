@@ -7,13 +7,7 @@
   "issues": {
     "1": [],
     "2": [],
-    "3": {
-      "title": "Implement `harmonize_fct()`",
-      "type": {},
-      "milestone": 1,
-      "body": "This function will map an input vector to a factor, optionally applying a lookup table. It is the core vector-level engine for harmonizing categorical data.\n\nThe signature should be:\n```r\nharmonize_fct(.data, ..., .spec = NULL, lookup = NULL)\n```\n\n**MVP Behavior:**\n- The function will take an input vector (`.data`).\n- It will apply the named vector provided in `lookup` to translate values.\n- If a `.spec` object (from `specify_fct()`) is provided, it will validate the resulting values against the `levels` in the spec, coercing the final output to a factor.\n- If `.spec` is `NULL`, the function will perform the mapping but skip the validation, returning a factor.\n",
-      "comments": {}
-    },
+    "3": [],
     "4": {
       "title": "Implement `specify_df()`",
       "type": {},
@@ -215,6 +209,15 @@
       "type": {},
       "milestone": {},
       "body": "> As a {hrmn} user, in order to extend the hrmn framework to my own data types, I would like an extensibility mechanism built into the package.\n\nEstablish a formal S3-based (or S7-based) system to allow users or other package authors to define their own `specify_*` and `harmonize_*` methods for custom data types. This would enable the harmonization of complex objects like spatial data or custom S3 classes.",
+      "comments": {}
+    },
+    "33": [],
+    "34": [],
+    "35": {
+      "title": "Pretty-print hrmn_spec objects",
+      "type": {},
+      "milestone": {},
+      "body": "> As a {hrmn} user, in order to easily inspect my harmonization specifications, I would like them to have dedicated `print()` and `format()` methods.\n\nCurrently, `hrmn_spec` objects do not have a custom print method, so they display as a simple list. This can be uninformative, especially as specifications become more complex.\n\nCreate S3 `format()` and `print()` methods for the `hrmn_spec` class.\n\n- The `print()` method should display a concise, user-friendly summary of the specification.\n- The `format()` method should provide the underlying implementation for `print()`.\n\nAfter creating these methods, determine whether `hrmn_spec_fct` (and any other sub-classes) require their own methods.",
       "comments": {}
     }
   }
