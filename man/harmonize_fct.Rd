@@ -41,3 +41,4 @@ harmonize_fct(
   .lookup = lookup
 )
 }
+\concept{harmonization functions}

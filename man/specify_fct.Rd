@@ -20,3 +20,8 @@ for harmonization.
 \examples{
 specify_fct(levels = c("a", "b", "c"))
 }
+\seealso{
+Other specification functions: 
+\code{\link{specify_df}()}
+}
+\concept{specification functions}

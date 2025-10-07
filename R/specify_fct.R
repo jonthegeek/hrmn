@@ -7,10 +7,10 @@
 #' @inheritParams .shared_params
 #'
 #' @returns A `hrmn_fct_spec` object that acts as a specification.
-#' @export
-#'
+#' @family specification functions
 #' @examples
 #' specify_fct(levels = c("a", "b", "c"))
+#' @export
 specify_fct <- function(levels = character()) {
   structure(
     list(levels = stbl::to_chr(levels)),

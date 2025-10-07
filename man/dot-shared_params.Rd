@@ -4,7 +4,19 @@
 \alias{.shared_params}
 \title{Parameters used in multiple functions}
 \arguments{
+\item{call}{\code{(environment)} The execution environment to mention as the
+source of error messages.}
+
 \item{levels}{(\code{character}) The allowed values of the factor.}
+
+\item{message_env}{(\code{environment}) The execution environment to use to
+evaluate variables in error messages.}
+
+\item{parent}{A parent condition, as you might create during a
+\code{\link[rlang:try_fetch]{rlang::try_fetch()}}. See \code{\link[rlang:abort]{rlang::abort()}} for additional information.}
+
+\item{subclass}{(\code{character}) Class(es) to assign to the error. Will be
+prefixed by "hrmn-error-".}
 }
 \description{
 Reused parameter definitions are gathered here for easier editing.
