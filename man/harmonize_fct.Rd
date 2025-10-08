@@ -12,7 +12,7 @@ to the specified factor.}
 
 \item{...}{These dots are for future extensions and must be empty.}
 
-\item{.spec}{(\code{hrmn_fct_spec}) A harmonization specification from
+\item{.spec}{(\code{hrmn_spec_fct}) A harmonization specification from
 \code{\link[=specify_fct]{specify_fct()}}.}
 
 \item{.lookup}{(named \code{character}) A vector of replacement values. The names

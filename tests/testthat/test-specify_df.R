@@ -1,7 +1,7 @@
-test_that("specify_df() returns a hrmn_df_spec object", {
+test_that("specify_df() returns a hrmn_spec_df object", {
   expect_s3_class(
     specify_df(),
-    c("hrmn_df_spec", "hrmn_spec", "list"),
+    c("hrmn_spec_df", "hrmn_spec", "list"),
     exact = TRUE
   )
 })
@@ -10,7 +10,7 @@ test_that("specify_df() captures a single column specification", {
   spec <- specify_fct(levels = c("a", "b"))
   expected <- structure(
     list(col1 = spec),
-    class = c("hrmn_df_spec", "hrmn_spec", "list")
+    class = c("hrmn_spec_df", "hrmn_spec", "list")
   )
   expect_identical(specify_df(col1 = spec), expected)
 })

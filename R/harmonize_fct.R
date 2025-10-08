@@ -4,7 +4,7 @@
 #'   to the specified factor.
 #' @inheritParams .shared_params
 #' @inheritParams rlang::args_dots_empty
-#' @param .spec (`hrmn_fct_spec`) A harmonization specification from
+#' @param .spec (`hrmn_spec_fct`) A harmonization specification from
 #'   [specify_fct()].
 #' @param .lookup (named `character`) A vector of replacement values. The names
 #'   are the values in `.data` and the values are the target values.

@@ -10,7 +10,7 @@ specify_df(...)
 \item{...}{(\code{hrmn_spec}) Column specifications, given as named arguments.}
 }
 \value{
-A \code{hrmn_df_spec} object that acts as a specification.
+A \code{hrmn_spec_df} object that acts as a specification.
 }
 \description{
 Create an object that specifies the desired format for a data frame.

@@ -6,7 +6,7 @@
 #'
 #' @param ... (`hrmn_spec`) Column specifications, given as named arguments.
 #'
-#' @returns A `hrmn_df_spec` object that acts as a specification.
+#' @returns A `hrmn_spec_df` object that acts as a specification.
 #' @family specification functions
 #' @examples
 #' specify_df(
@@ -17,5 +17,5 @@
 specify_df <- function(...) {
   .check_args_named(...)
   .check_args_spec(...)
-  structure(list(...), class = c("hrmn_df_spec", "hrmn_spec", "list"))
+  structure(list(...), class = c("hrmn_spec_df", "hrmn_spec", "list"))
 }
