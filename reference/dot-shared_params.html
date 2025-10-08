@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">hrmn</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9002</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9003</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,8 +41,28 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
 
 
-<dl><dt id="arg-levels">levels<a class="anchor" aria-label="anchor" href="#arg-levels"></a></dt>
+<dl><dt id="arg-call">call<a class="anchor" aria-label="anchor" href="#arg-call"></a></dt>
+<dd><p><code>(environment)</code> The execution environment to mention as the
+source of error messages.</p></dd>
+
+
+<dt id="arg-levels">levels<a class="anchor" aria-label="anchor" href="#arg-levels"></a></dt>
 <dd><p>(<code>character</code>) The allowed values of the factor.</p></dd>
+
+
+<dt id="arg-message-env">message_env<a class="anchor" aria-label="anchor" href="#arg-message-env"></a></dt>
+<dd><p>(<code>environment</code>) The execution environment to use to
+evaluate variables in error messages.</p></dd>
+
+
+<dt id="arg-parent">parent<a class="anchor" aria-label="anchor" href="#arg-parent"></a></dt>
+<dd><p>A parent condition, as you might create during a
+<code><a href="https://rlang.r-lib.org/reference/try_fetch.html" class="external-link">rlang::try_fetch()</a></code>. See <code><a href="https://rlang.r-lib.org/reference/abort.html" class="external-link">rlang::abort()</a></code> for additional information.</p></dd>
+
+
+<dt id="arg-subclass">subclass<a class="anchor" aria-label="anchor" href="#arg-subclass"></a></dt>
+<dd><p>(<code>character</code>) Class(es) to assign to the error. Will be
+prefixed by "hrmn-error-".</p></dd>
 
 </dl></div>
 
