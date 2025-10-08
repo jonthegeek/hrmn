@@ -10,7 +10,7 @@ specify_fct(levels = character())
 \item{levels}{(\code{character}) The allowed values of the factor.}
 }
 \value{
-A \code{hrmn_fct_spec} object that acts as a specification.
+A \code{hrmn_spec_fct} object that acts as a specification.
 }
 \description{
 Create an object that specifies the desired levels for a factor variable.
@@ -20,3 +20,8 @@ for harmonization.
 \examples{
 specify_fct(levels = c("a", "b", "c"))
 }
+\seealso{
+Other specification functions: 
+\code{\link{specify_df}()}
+}
+\concept{specification functions}

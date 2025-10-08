@@ -1,7 +1,7 @@
-test_that("specify_fct() returns an object with the correct class", {
+test_that("specify_fct() returns a hrmn_spec_fct object", {
   expect_s3_class(
     specify_fct(),
-    c("hrmn_fct_spec", "hrmn_spec", "list"),
+    c("hrmn_spec_fct", "hrmn_spec", "list"),
     exact = TRUE
   )
 })

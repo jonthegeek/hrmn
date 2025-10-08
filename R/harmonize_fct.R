@@ -4,14 +4,13 @@
 #'   to the specified factor.
 #' @inheritParams .shared_params
 #' @inheritParams rlang::args_dots_empty
-#' @param .spec (`hrmn_fct_spec`) A harmonization specification from
+#' @param .spec (`hrmn_spec_fct`) A harmonization specification from
 #'   [specify_fct()].
 #' @param .lookup (named `character`) A vector of replacement values. The names
 #'   are the values in `.data` and the values are the target values.
 #'
 #' @returns A harmonized [factor()].
-#' @export
-#'
+#' @family harmonization functions
 #' @examples
 #' # Without a spec, harmonize_fct() acts like [base::factor()].
 #' harmonize_fct(c("a", "b", "c"))
@@ -28,6 +27,7 @@
 #'   .spec = spec2,
 #'   .lookup = lookup
 #' )
+#' @export
 harmonize_fct <- function(.data, ..., .spec = NULL, .lookup = NULL) {
   rlang::check_dots_empty()
   .data <- stbl::to_chr(.data)
