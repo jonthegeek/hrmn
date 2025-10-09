@@ -1,67 +1,12 @@
 test_that(".hrmn_abort() throws the expected error", {
-  expect_error(
+  stbl::expect_pkg_error_classes(
     .hrmn_abort("A message.", "a_subclass"),
-    class = "hrmn-error-a_subclass"
-  )
-  expect_error(
-    .hrmn_abort("A message.", "a_subclass"),
-    class = "hrmn-error"
-  )
-  expect_error(
-    .hrmn_abort("A message.", "a_subclass"),
-    class = "hrmn-condition"
+    "hrmn",
+    "a_subclass"
   )
   expect_snapshot(
     .hrmn_abort("A message.", "a_subclass"),
     error = TRUE
-  )
-})
-
-test_that(".hrmn_abort() uses parent when provided", {
-  parent_cnd <- rlang::catch_cnd(cli::cli_abort("parent message"))
-  expect_snapshot(
-    .hrmn_abort("child message", "child_class", parent = parent_cnd),
-    error = TRUE
-  )
-})
-
-test_that(".hrmn_abort() passes dots to cli_abort()", {
-  expect_error(
-    .hrmn_abort("A message.", "a_subclass", .internal = TRUE),
-    class = "hrmn-error-a_subclass"
-  )
-  expect_snapshot(
-    .hrmn_abort("A message.", "a_subclass", .internal = TRUE),
-    error = TRUE
-  )
-})
-
-test_that(".hrmn_abort() uses message_env when provided", {
-  var <- "a locally defined var"
-  msg_env <- new.env()
-  msg_env$var <- "a custom environment"
-  expect_snapshot(
-    .hrmn_abort(
-      "This message comes from {var}.",
-      "subclass",
-      message_env = msg_env
-    ),
-    error = TRUE
-  )
-})
-
-test_that(".compile_error_class() works", {
-  expect_equal(
-    .compile_error_class("hrmn", "error", "my_subclass"),
-    "hrmn-error-my_subclass"
-  )
-  expect_equal(
-    .compile_error_class("hrmn", "error"),
-    "hrmn-error"
-  )
-  expect_equal(
-    .compile_error_class("hrmn", "condition"),
-    "hrmn-condition"
   )
 })
 
