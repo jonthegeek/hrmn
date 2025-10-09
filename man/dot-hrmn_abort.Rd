@@ -18,7 +18,7 @@
 formatted with \code{\link[cli:cli_bullets]{cli::cli_bullets()}}.}
 
 \item{subclass}{(\code{character}) Class(es) to assign to the error. Will be
-prefixed by "hrmn-error-".}
+prefixed by "\{package\}-error-".}
 
 \item{call}{\code{(environment)} The execution environment to mention as the
 source of error messages.}
@@ -33,6 +33,6 @@ evaluate variables in error messages.}
 \code{\link[rlang:abort]{rlang::abort()}}.}
 }
 \description{
-A wrapper around \code{\link[cli:cli_abort]{cli::cli_abort()}} to throw classed errors.
+A wrapper around \code{\link[stbl:pkg_abort]{stbl::pkg_abort()}} to throw classed errors.
 }
 \keyword{internal}

@@ -15,7 +15,6 @@ BugReports: https://github.com/jonthegeek/hrmn/issues
 Depends:
     R (>= 4.1)
 Imports:
-    cli,
     fastmatch,
     rlang,
     stbl (>= 0.2.0.9002)
