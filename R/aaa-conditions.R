@@ -8,13 +8,9 @@ rlang::caller_env
 
 #' Signal an error with standards applied
 #'
-#' A wrapper around [cli::cli_abort()] to throw classed errors.
+#' A wrapper around [stbl::pkg_abort()] to throw classed errors.
 #'
-#' @param message (`character`) The message for the new error. Messages will be
-#'   formatted with [cli::cli_bullets()].
-#' @param ... Additional parameters passed to [cli::cli_abort()] and on to
-#'   [rlang::abort()].
-#' @inheritParams .shared_params
+#' @inheritParams stbl::pkg_abort
 #' @keywords internal
 .hrmn_abort <- function(
   message,
@@ -24,27 +20,15 @@ rlang::caller_env
   parent = NULL,
   ...
 ) {
-  cli::cli_abort(
-    message,
-    class = c(
-      .compile_error_class("hrmn", "error", subclass),
-      .compile_error_class("hrmn", "error"),
-      .compile_error_class("hrmn", "condition")
-    ),
+  stbl::pkg_abort(
+    "hrmn",
+    message = message,
+    subclass = subclass,
     call = call,
-    .envir = message_env,
+    message_env = message_env,
     parent = parent,
     ...
   )
-}
-
-#' Compile an error class
-#'
-#' @param ... `(character)` Components of the class name.
-#' @returns A length-1 character vector.
-#' @keywords internal
-.compile_error_class <- function(...) {
-  paste(..., sep = "-")
 }
 
 #' Check that all specified args are named
