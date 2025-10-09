@@ -34,8 +34,8 @@ You can install the development version of hrmn from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("jonthegeek/hrmn")
+# install.packages("pak")
+pak::pak("jonthegeek/hrmn")
 ```
 
 ## Usage
