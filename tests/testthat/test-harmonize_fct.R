@@ -1,4 +1,4 @@
-test_that("harmonize_fct() with empty vector returns a factor", {
+test_that("harmonize_fct() with empty vector returns an empty factor with no levels", {
   expect_identical(
     {
       harmonize_fct(factor())

@@ -180,7 +180,7 @@ harmonize_df <- function(
           "The data frame has columns not present in the specification.",
           i = "Extra columns: {extra_in_data}.",
           i = "Set {.arg .unspecified_columns} to {.str drop} to remove extra columns.",
-          i = "Set {.arg .unspecified_columns} to {.str keep} to remove extra columns."
+          i = "Set {.arg .unspecified_columns} to {.str keep} to keep extra columns."
         ),
         "col_mismatch",
         .call = .call,

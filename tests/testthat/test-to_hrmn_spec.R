@@ -9,7 +9,7 @@ test_that(".to_hrmn_spec returns NULL if input is NULL", {
   expect_null(.to_hrmn_spec(NULL))
 })
 
-test_that(".to_hrmn_spec returns NULL input has length 0", {
+test_that(".to_hrmn_spec returns NULL if input has length 0", {
   spec <- structure(list(), class = "hrmn_spec")
   expect_identical(.to_hrmn_spec(spec), NULL)
 })
