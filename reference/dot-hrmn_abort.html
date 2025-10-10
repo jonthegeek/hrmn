@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">hrmn</a>
 
-    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9004</small>
+    <small class="nav-text text-danger me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Unreleased version">0.0.0.9005</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,8 +41,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">.hrmn_abort</span><span class="op">(</span></span>
 <span>  <span class="va">message</span>,</span>
 <span>  <span class="va">subclass</span>,</span>
-<span>  call <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html" class="external-link">caller_env</a></span><span class="op">(</span><span class="op">)</span>,</span>
-<span>  message_env <span class="op">=</span> <span class="va">call</span>,</span>
+<span>  .call <span class="op">=</span> <span class="fu"><a href="https://rlang.r-lib.org/reference/stack.html" class="external-link">caller_env</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  message_env <span class="op">=</span> <span class="va">.call</span>,</span>
 <span>  parent <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -62,7 +62,7 @@ formatted with <code><a href="https://cli.r-lib.org/reference/cli_bullets.html" 
 prefixed by "{package}-error-".</p></dd>
 
 
-<dt id="arg-call">call<a class="anchor" aria-label="anchor" href="#arg-call"></a></dt>
+<dt id="arg--call">.call<a class="anchor" aria-label="anchor" href="#arg--call"></a></dt>
 <dd><p><code>(environment)</code> The execution environment to mention as the
 source of error messages.</p></dd>
 
