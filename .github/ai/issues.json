@@ -9,13 +9,7 @@
     "2": [],
     "3": [],
     "4": [],
-    "5": {
-      "title": "Implement `harmonize_df()`",
-      "type": {},
-      "milestone": 1,
-      "body": "This function will be the main entry point for harmonizing a data frame. It orchestrates the process by applying column-wise mapping rules and validating the result against a full data frame specification.\n\nThe signature should be:\n```r\nharmonize_df(.data, ..., .spec = NULL)\n```\n\n**MVP Behavior:**\n- It will take a source data frame (`.data`) and an optional specification object (`.spec`).\n- It will use data-masking to evaluate the mapping expressions supplied in `...`.\n- If a `.spec` is provided, `harmonize_df()` will use it to validate the final data frame structure after all individual mappings are complete.\n- It should be able to automatically pass the relevant parts of its main `.spec` to the individual `harmonize_*()` calls inside `...` if they don't have their own `.spec` defined.\n",
-      "comments": {}
-    },
+    "5": [],
     "6": {
       "title": "Add MVP functionality to README",
       "type": {},
