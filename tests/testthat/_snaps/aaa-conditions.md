@@ -6,18 +6,18 @@
       Error:
       ! A message.
 
-# .check_args_named() works
+# .stop_if_args_unnamed() works
 
     Code
-      .check_args_named(1)
+      .stop_if_args_unnamed(1)
     Condition
       Error:
       ! All arguments must be named.
 
-# .check_args_spec() works
+# .stop_if_args_not_spec() works
 
     Code
-      .check_args_spec(a = 1)
+      .stop_if_args_not_spec(a = 1)
     Condition
       Error:
       ! All arguments must be `hrmn_spec` objects.
@@ -26,7 +26,7 @@
 ---
 
     Code
-      .check_args_spec(a = 1, b = "B")
+      .stop_if_args_not_spec(a = 1, b = "B")
     Condition
       Error:
       ! All arguments must be `hrmn_spec` objects.
@@ -35,7 +35,7 @@
 ---
 
     Code
-      .check_args_spec(a = 1, b = spec)
+      .stop_if_args_not_spec(a = 1, b = spec)
     Condition
       Error:
       ! All arguments must be `hrmn_spec` objects.
@@ -44,7 +44,7 @@
 ---
 
     Code
-      .check_args_spec(1)
+      .stop_if_args_not_spec(1)
     Condition
       Error:
       ! All arguments must be `hrmn_spec` objects.

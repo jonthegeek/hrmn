@@ -2,6 +2,7 @@
 
 export(caller_arg)
 export(caller_env)
+export(harmonize_df)
 export(harmonize_fct)
 export(specify_df)
 export(specify_fct)

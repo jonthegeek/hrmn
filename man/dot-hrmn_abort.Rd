@@ -7,8 +7,8 @@
 .hrmn_abort(
   message,
   subclass,
-  call = caller_env(),
-  message_env = call,
+  .call = caller_env(),
+  message_env = .call,
   parent = NULL,
   ...
 )
@@ -20,7 +20,7 @@ formatted with \code{\link[cli:cli_bullets]{cli::cli_bullets()}}.}
 \item{subclass}{(\code{character}) Class(es) to assign to the error. Will be
 prefixed by "\{package\}-error-".}
 
-\item{call}{\code{(environment)} The execution environment to mention as the
+\item{.call}{\code{(environment)} The execution environment to mention as the
 source of error messages.}
 
 \item{message_env}{(\code{environment}) The execution environment to use to

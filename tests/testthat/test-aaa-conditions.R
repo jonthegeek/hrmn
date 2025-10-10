@@ -10,34 +10,37 @@ test_that(".hrmn_abort() throws the expected error", {
   )
 })
 
-test_that(".check_args_named() works", {
-  expect_no_error(.check_args_named())
-  expect_no_error(.check_args_named(a = 1))
-  expect_no_error(.check_args_named(a = 1, b = 2))
+test_that(".stop_if_args_unnamed() works", {
+  expect_no_error(.stop_if_args_unnamed())
+  expect_no_error(.stop_if_args_unnamed(a = 1))
+  expect_no_error(.stop_if_args_unnamed(a = 1, b = 2))
 
-  expect_error(.check_args_named(1), class = "hrmn-error-args_unnamed")
-  expect_error(.check_args_named(a = 1, 2), class = "hrmn-error-args_unnamed")
-  expect_error(.check_args_named(1, 2), class = "hrmn-error-args_unnamed")
-  expect_snapshot(.check_args_named(1), error = TRUE)
+  expect_error(.stop_if_args_unnamed(1), class = "hrmn-error-args_unnamed")
+  expect_error(
+    .stop_if_args_unnamed(a = 1, 2),
+    class = "hrmn-error-args_unnamed"
+  )
+  expect_error(.stop_if_args_unnamed(1, 2), class = "hrmn-error-args_unnamed")
+  expect_snapshot(.stop_if_args_unnamed(1), error = TRUE)
 })
 
-test_that(".check_args_spec() works", {
-  expect_no_error(.check_args_spec())
+test_that(".stop_if_args_not_spec() works", {
+  expect_no_error(.stop_if_args_not_spec())
   spec <- structure(list(), class = "hrmn_spec")
-  expect_no_error(.check_args_spec(a = spec))
-  expect_no_error(.check_args_spec(a = spec, b = spec))
+  expect_no_error(.stop_if_args_not_spec(a = spec))
+  expect_no_error(.stop_if_args_not_spec(a = spec, b = spec))
 
-  expect_error(.check_args_spec(a = 1), class = "hrmn-error-args_not_spec")
+  expect_error(.stop_if_args_not_spec(a = 1), class = "hrmn-error-not_spec")
   expect_error(
-    .check_args_spec(a = spec, b = "B"),
-    class = "hrmn-error-args_not_spec"
+    .stop_if_args_not_spec(a = spec, b = "B"),
+    class = "hrmn-error-not_spec"
   )
   expect_error(
-    .check_args_spec(a = 1, b = 2),
-    class = "hrmn-error-args_not_spec"
+    .stop_if_args_not_spec(a = 1, b = 2),
+    class = "hrmn-error-not_spec"
   )
-  expect_snapshot(.check_args_spec(a = 1), error = TRUE)
-  expect_snapshot(.check_args_spec(a = 1, b = "B"), error = TRUE)
-  expect_snapshot(.check_args_spec(a = 1, b = spec), error = TRUE)
-  expect_snapshot(.check_args_spec(1), error = TRUE)
+  expect_snapshot(.stop_if_args_not_spec(a = 1), error = TRUE)
+  expect_snapshot(.stop_if_args_not_spec(a = 1, b = "B"), error = TRUE)
+  expect_snapshot(.stop_if_args_not_spec(a = 1, b = spec), error = TRUE)
+  expect_snapshot(.stop_if_args_not_spec(1), error = TRUE)
 })

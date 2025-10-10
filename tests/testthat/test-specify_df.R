@@ -25,14 +25,14 @@ test_that("specify_df() errors if dots are unnamed", {
 test_that("specify_df() errors if arguments are not hrmn_spec objects", {
   expect_error(
     specify_df(col1 = "not a spec"),
-    class = "hrmn-error-args_not_spec"
+    class = "hrmn-error-not_spec"
   )
   expect_error(
     specify_df(
       col1 = specify_fct(levels = c("a", "b")),
       col2 = 123
     ),
-    class = "hrmn-error-args_not_spec"
+    class = "hrmn-error-not_spec"
   )
   expect_snapshot(
     specify_df(col2 = 123),

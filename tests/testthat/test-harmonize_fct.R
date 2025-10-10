@@ -1,9 +1,18 @@
-test_that("harmonize_fct() works with empty vector and returns a factor", {
+test_that("harmonize_fct() with empty vector returns a factor", {
   expect_identical(
     {
       harmonize_fct(factor())
     },
     factor()
+  )
+})
+
+test_that("harmonize_fct() with character vector and no spec returns a factor", {
+  expect_identical(
+    {
+      harmonize_fct(c("a", "b", "c"))
+    },
+    factor(c("a", "b", "c"))
   )
 })
 

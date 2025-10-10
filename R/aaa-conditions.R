@@ -15,8 +15,8 @@ rlang::caller_env
 .hrmn_abort <- function(
   message,
   subclass,
-  call = caller_env(),
-  message_env = call,
+  .call = caller_env(),
+  message_env = .call,
   parent = NULL,
   ...
 ) {
@@ -24,7 +24,7 @@ rlang::caller_env
     "hrmn",
     message = message,
     subclass = subclass,
-    call = call,
+    call = .call,
     message_env = message_env,
     parent = parent,
     ...
@@ -37,15 +37,14 @@ rlang::caller_env
 #' @inheritParams .shared_params
 #' @returns `NULL`, invisibly.
 #' @keywords internal
-.check_args_named <- function(..., call = rlang::caller_env()) {
+.stop_if_args_unnamed <- function(..., .call = rlang::caller_env()) {
   if (...length() && (is.null(...names()) || !all(nzchar(...names())))) {
     .hrmn_abort(
       "All arguments must be named.",
       "args_unnamed",
-      call = call
+      .call = .call
     )
   }
-  invisible(NULL)
 }
 
 #' Check that all args are hrmn_spec objects
@@ -54,7 +53,7 @@ rlang::caller_env
 #' @inheritParams .shared_params
 #' @returns `NULL`, invisibly.
 #' @keywords internal
-.check_args_spec <- function(..., call = rlang::caller_env()) {
+.stop_if_args_not_spec <- function(..., .call = rlang::caller_env()) {
   dots <- list(...)
   is_spec <- vapply(dots, inherits, logical(1), "hrmn_spec")
   if (length(dots) && !all(is_spec)) {
@@ -65,10 +64,9 @@ rlang::caller_env
         "All arguments must be `hrmn_spec` objects.",
         "x" = "Argument{?s} {.arg {bad_args}} {?is/are} not {?a / }`hrmn_spec` object{?s}."
       ),
-      subclass = "args_not_spec",
-      call = call,
+      subclass = "not_spec",
+      .call = .call,
       message_env = rlang::current_env()
     )
   }
-  invisible(NULL)
 }
