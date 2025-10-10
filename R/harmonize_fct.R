@@ -31,9 +31,12 @@
 harmonize_fct <- function(.data, ..., .spec = NULL, .lookup = NULL) {
   rlang::check_dots_empty()
   .data <- stbl::to_chr(.data)
-  .spec <- .spec %||% specify_fct()
-  .data <- .apply_fct_lookup(.data, .lookup = .lookup)
-  return(factor(.data, levels = .spec$levels))
+  .spec <- .to_hrmn_spec(.spec, "fct")
+  .data <- .harmonize_fct_by_lookup(.data, .lookup = .lookup)
+  if (length(.spec)) {
+    return(factor(.data, levels = .spec$levels))
+  }
+  return(factor(.data))
 }
 
 #' Apply a lookup table to a character vector
@@ -42,7 +45,7 @@ harmonize_fct <- function(.data, ..., .spec = NULL, .lookup = NULL) {
 #' @returns A character vector with values replaced according to the lookup
 #'   table.
 #' @keywords internal
-.apply_fct_lookup <- function(.data, .lookup = NULL) {
+.harmonize_fct_by_lookup <- function(.data, .lookup = NULL) {
   .lookup <- stbl::to_chr(.lookup)
   matches <- .data %fin% names(.lookup)
   .data[matches] <- .lookup[.data[matches]]

@@ -15,7 +15,7 @@
 #' )
 #' @export
 specify_df <- function(...) {
-  .check_args_named(...)
-  .check_args_spec(...)
+  .stop_if_args_unnamed(...)
+  .stop_if_args_not_spec(...)
   structure(list(...), class = c("hrmn_spec_df", "hrmn_spec", "list"))
 }

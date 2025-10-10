@@ -41,4 +41,8 @@ harmonize_fct(
   .lookup = lookup
 )
 }
+\seealso{
+Other harmonization functions: 
+\code{\link{harmonize_df}()}
+}
 \concept{harmonization functions}
