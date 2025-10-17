@@ -9,9 +9,9 @@ Description: A common early step during data analysis is "data
     consistent format, with consistent column names, classes, and values.
     The goal of 'hrmn' is to make this process as easy as it can be.
 License: MIT + file LICENSE
-URL: https://jonthegeek.github.io/hrmn/,
-    https://github.com/jonthegeek/hrmn
-BugReports: https://github.com/jonthegeek/hrmn/issues
+URL: https://hrmn.wrangle.zone/,
+    https://github.com/wranglezone/hrmn
+BugReports: https://github.com/wranglezone/hrmn/issues
 Depends:
     R (>= 4.1)
 Imports:

@@ -10,8 +10,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/hrmn)](https://CRAN.R-project.org/package=hrmn)
 [![Codecov test
-coverage](https://codecov.io/gh/jonthegeek/hrmn/graph/badge.svg)](https://app.codecov.io/gh/jonthegeek/hrmn)
-[![R-CMD-check](https://github.com/jonthegeek/hrmn/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jonthegeek/hrmn/actions/workflows/R-CMD-check.yaml)
+coverage](https://codecov.io/gh/wranglezone/hrmn/graph/badge.svg)](https://app.codecov.io/gh/wranglezone/hrmn)
+[![R-CMD-check](https://github.com/wranglezone/hrmn/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/wranglezone/hrmn/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 A common early step during data analysis is data harmonization:
@@ -35,7 +35,7 @@ You can install the development version of hrmn from
 
 ``` r
 # install.packages("pak")
-pak::pak("jonthegeek/hrmn")
+pak::pak("wranglezone/hrmn")
 ```
 
 ## Usage
@@ -60,5 +60,5 @@ that cannot be conformed to the specification.
 ## Code of Conduct
 
 Please note that the hrmn project is released with a [Contributor Code
-of Conduct](https://jonthegeek.github.io/hrmn/CODE_OF_CONDUCT.html). By
+of Conduct](https://hrmn.wrangle.zone/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.

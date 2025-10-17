@@ -11,9 +11,9 @@ A common early step during data analysis is "data harmonization" -- converting d
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://jonthegeek.github.io/hrmn/}
-  \item \url{https://github.com/jonthegeek/hrmn}
-  \item Report bugs at \url{https://github.com/jonthegeek/hrmn/issues}
+  \item \url{https://hrmn.wrangle.zone/}
+  \item \url{https://github.com/wranglezone/hrmn}
+  \item Report bugs at \url{https://github.com/wranglezone/hrmn/issues}
 }
 
 }
